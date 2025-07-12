@@ -24,7 +24,7 @@ export const getProducts = async (query: QueryParams): Promise<Product[]> => {
       throw new Error("NEXT_PUBLIC_URL is not defined");
     }
 
-    const res = await fetch(`${URL}`, {
+    const res = await fetch(`${url}`, {
       next: { revalidate: 60 },
     });
 
