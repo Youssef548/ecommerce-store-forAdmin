@@ -15,20 +15,21 @@ export const getProducts = async (query: QueryParams): Promise<Product[]> => {
   try {
     const url = qs.stringifyUrl({
       url: URL,
-      query: {
-        ...query,
-      },
+      query: { ...query },
     });
+
+    console.log("Fetching products from:", url);
 
     if (!URL) {
       throw new Error("NEXT_PUBLIC_URL is not defined");
     }
 
-    const res = await fetch(`${url}`, {
+    const res = await fetch(url, {
       next: { revalidate: 60 },
     });
 
     if (!res.ok) {
+      console.error("Fetch failed with status:", res.status);
       throw new Error("Failed to fetch prodcuts");
     }
 
