@@ -11,11 +11,11 @@ interface GalleryTabProps {
 const GalleryTab = ({ image }: GalleryTabProps) => {
   return (
     <Tab
-      className="relative flex aspect-square cursor-pointer
-  items-center justify-center rounded-md bg-whit"
+      className="relative aspect-square cursor-pointer
+  items-center justify-center rounded-md bg-white border-2 border-transparent hover:border-gray-300 transition-colors"
     >
       {({ selected }) => (
-        <div>
+        <div className="w-full h-full">
           <span
             className="absolute h-full w-full aspect-square
                 inset-0 overflow-hidden rounded-md"
