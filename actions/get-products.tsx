@@ -18,8 +18,6 @@ export const getProducts = async (query: QueryParams): Promise<Product[]> => {
       query: { ...query },
     });
 
-    console.log("Fetching products from:", url);
-
     if (!URL) {
       throw new Error("NEXT_PUBLIC_URL is not defined");
     }

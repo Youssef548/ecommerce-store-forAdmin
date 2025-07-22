@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 const Button = forwardRef<
   HTMLButtonElement,
   React.ButtonHTMLAttributes<HTMLButtonElement>
->(({ className, children, disabled, type = "button" }, ref) => {
+>(({ className, children, disabled, type = "button", ...props }, ref) => {
   return (
     <button
       className={cn(
@@ -21,12 +21,14 @@ const Button = forwardRef<
         font-semibold
         hover:opacity-75
         transition
+        cursor-pointer
     `,
         className
       )}
       disabled={disabled}
       ref={ref}
       type={type}
+      {...props}
     >
       {children}
     </button>
